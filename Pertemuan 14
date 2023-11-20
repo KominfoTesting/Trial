@@ -1,0 +1,76 @@
+#include <iostream>
+ 
+using namespace std;
+ 
+void uji_bil_genap_ganjil();
+void tampilkan_ganjil();
+void tampilkan_genap();
+ 
+int main() {
+    int pilihan;
+    char ulang;
+ 
+    do {
+        cout << "## Operasi Bilangan Ganjil/Genap ##" << endl;
+        cout << "===================================" << endl;
+        cout << "1. Menguji Bilangan Ganjil atau Genap" << endl;
+        cout << "2. Menampilkan N Bilangan Ganjil" << endl;
+        cout << "3. Menampilkan N Bilangan Genap" << endl;
+        cout << "9. Keluar" << endl;
+        cout << endl;
+        cout << "Pilihan anda: "; cin >> pilihan;
+ 
+        if (pilihan == 1) {
+            uji_bil_genap_ganjil();
+        } else if (pilihan == 2) {
+            tampilkan_ganjil();
+        } else if (pilihan == 3) {
+            tampilkan_genap();
+        } else if (pilihan == 9) {
+            cout << "Terimakasih..." << endl;
+            break; // Keluar dari loop jika pilihan adalah 9
+        } else {
+            cout << "Menu tidak tersedia" << endl;
+        }
+        cout << endl;
+ 
+        cout << "Ingin memilih menu lain (y/n)? "; cin >> ulang;
+        cout << endl;
+    } while(ulang != 'n');
+
+    return 0;
+}
+ 
+void uji_bil_genap_ganjil() {
+    int bilangan;
+ 
+    cout << "Masukan bilangan bulat: "; cin >> bilangan;
+ 
+    if(bilangan % 2 == 0) {
+        cout << "Bilangan " << bilangan << " adalah bilangan genap" << endl;
+    } else {
+        cout << "Bilangan " << bilangan << " adalah bilangan ganjil" << endl;
+    }
+}
+ 
+void tampilkan_ganjil() {
+    int jumlah, cnt;
+ 
+    cout << "Masukan berapa banyak bilangan ganjil yang akan ditampilkan: "; cin >> jumlah;
+ 
+    cnt = 1;
+    for(int i = 1; i <= jumlah*2; i+=2, cnt++) {
+        cout << cnt << ". " << i << endl;
+    }
+}
+ 
+void tampilkan_genap() {
+    int jumlah, cnt;
+    
+    cout << "Masukan berapa banyak bilangan genap yang akan ditampilkan: "; cin >> jumlah;
+ 
+    cnt = 1;
+    for(int i = 0; i <= jumlah*2; i+=2, cnt++) {
+        cout << cnt << ". " << i << endl;
+    }
+}
